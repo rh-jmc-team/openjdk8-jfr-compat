@@ -1,26 +1,14 @@
 package jdk.jfr;
 
 import java.lang.annotation.Annotation;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
-import jdk.jfr.internal.JVMSupport;
-import jdk.jfr.internal.MetadataRepository;
 import jdk.jfr.internal.PlatformEventType;
 import jdk.jfr.internal.Type;
-import jdk.jfr.internal.Utils;
 
 public final class EventType {
-    private final PlatformEventType platformEventType;
-    private final List<String> UNCATEGORIZED = Collections.singletonList("Uncategorized");
-    private Map<String, ValueDescriptor> cache; // create lazy to avoid memory overhead
-    // helper constructor
-    EventType(PlatformEventType platformEventType) {
-    }
+	EventType(PlatformEventType platformEventType) {
+	}
 
     public List<ValueDescriptor> getFields() {
         return null;

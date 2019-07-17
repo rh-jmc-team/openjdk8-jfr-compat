@@ -1,11 +1,8 @@
 package jdk.jfr;
 
 import java.lang.annotation.Annotation;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-import jdk.jfr.internal.AnnotationConstruct;
 import jdk.jfr.internal.Type;
 
 public final class SettingDescriptor {

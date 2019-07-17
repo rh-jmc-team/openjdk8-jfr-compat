@@ -10,6 +10,7 @@ import jdk.jfr.internal.Control;
 public abstract class SettingControl extends Control {
 
     protected SettingControl() {
+    	super(AccessController.getContext());
     }
 
     @Override

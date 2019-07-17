@@ -6,39 +6,14 @@ import java.io.InputStream;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
-import jdk.jfr.internal.PlatformRecorder;
 import jdk.jfr.internal.PlatformRecording;
-import jdk.jfr.internal.Type;
-import jdk.jfr.internal.Utils;
-import jdk.jfr.internal.WriteableUserPath;
 
 public final class Recording implements Closeable {
 
-    private static class RecordingSettings extends EventSettings {
-
-        RecordingSettings(Recording r, String identifier) {
-        }
-
-        RecordingSettings(Recording r, Class<? extends Event> eventClass) {
-        }
-
-        @Override
-        public EventSettings with(String name, String value) {
-        	return null;
-        }
-
-        @Override
-        public Map<String, String> toMap() {
-            return null;
-        }
-    }
-
-    public Recording(Map<String, String> settings) {
-    }
+   public Recording(Map<String, String> settings) {
+   }
 
     public Recording() {
     }
@@ -61,7 +36,7 @@ public final class Recording implements Closeable {
     }
 
     public long getSize() {
-        return null;
+        return 0;
     }
 
     public Instant getStopTime() {
@@ -165,9 +140,6 @@ public final class Recording implements Closeable {
 
     PlatformRecording getInternal() {
         return null;
-    }
-
-    private void setSetting(String id, String value) {
     }
 
 }

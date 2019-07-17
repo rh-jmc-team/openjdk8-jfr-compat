@@ -1,9 +1,8 @@
 package jdk.jfr;
 
-/*@Enabled(true)
+@Enabled(true)
 @StackTrace(true)
 @Registered(true)
-*/
 abstract public class Event {
     /**
      * Sole constructor, for invocation by subclass constructors, typically

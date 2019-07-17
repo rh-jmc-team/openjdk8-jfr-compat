@@ -1,26 +1,12 @@
 package jdk.jfr;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.StringJoiner;
 
 import jdk.jfr.internal.Type;
-import jdk.jfr.internal.TypeLibrary;
-import jdk.jfr.internal.Utils;
 
 public final class AnnotationElement {
-    private final Type type;
-    private final List<Object> annotationValues;
-    private final List<String> annotationNames;
-    private final boolean inBootClassLoader;
 
     // package private
     AnnotationElement(Type type, List<Object> objects, boolean boot) {
@@ -37,6 +23,7 @@ public final class AnnotationElement {
     }
 
     public List<Object> getValues() {
+    	return null;
     }
 
     public List<ValueDescriptor> getValueDescriptors() {
@@ -44,6 +31,7 @@ public final class AnnotationElement {
     }
 
     public List<AnnotationElement> getAnnotationElements() {
+    	return null;
     }
 
     public String getTypeName() {
@@ -66,16 +54,8 @@ public final class AnnotationElement {
         return 0;
     }
 
-    // package private
     Type getType() {
         return null;
-    }
-
-    private static void checkType(Class<?> type) {
-    }
-
-    private static boolean isKnownJFRAnnotation(Class<? extends Annotation> annotationType) {
-        return false;
     }
 
     boolean isInBoot() {

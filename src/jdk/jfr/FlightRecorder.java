@@ -1,37 +1,12 @@
 package jdk.jfr;
 
-import static jdk.jfr.internal.LogLevel.DEBUG;
-import static jdk.jfr.internal.LogLevel.INFO;
-import static jdk.jfr.internal.LogTag.JFR;
-
-import java.security.AccessControlContext;
-import java.security.AccessController;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-import jdk.jfr.internal.JVM;
-import jdk.jfr.internal.JVMSupport;
-import jdk.jfr.internal.LogLevel;
-import jdk.jfr.internal.Logger;
-import jdk.jfr.internal.MetadataRepository;
-import jdk.jfr.internal.Options;
 import jdk.jfr.internal.PlatformRecorder;
-import jdk.jfr.internal.PlatformRecording;
-import jdk.jfr.internal.Repository;
-import jdk.jfr.internal.RequestEngine;
-import jdk.jfr.internal.Utils;
 
 public final class FlightRecorder {
-    private static volatile FlightRecorder platformRecorder;
-    private static volatile boolean initialized;
-    private final PlatformRecorder internal;
-
-    private FlightRecorder(PlatformRecorder internal) {
-    }
-
-    public List<Recording> getRecordings() {
+   
+   public List<Recording> getRecordings() {
         return null;
     }
 

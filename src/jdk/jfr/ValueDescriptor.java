@@ -1,27 +1,15 @@
 package jdk.jfr;
 
 import java.lang.annotation.Annotation;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-import jdk.jfr.internal.AnnotationConstruct;
 import jdk.jfr.internal.Type;
-import jdk.jfr.internal.Utils;
 
 public final class ValueDescriptor {
 
-    private final AnnotationConstruct annotationConstruct;
-    private final Type type;
-    private final String name;
-    private final boolean isArray;
-    private final boolean constantPool;
-    private final String javaFieldName;
-
     // package private, invoked by jdk.internal.
     ValueDescriptor(Type type, String name, List<AnnotationElement> annotations, int dimension, boolean constantPool, String fieldName) {
-        }
+    }
 
     public ValueDescriptor(Class<?> type, String name) {
     }
