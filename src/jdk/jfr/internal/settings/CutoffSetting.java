@@ -1,6 +1,5 @@
 package jdk.jfr.internal.settings;
 
-import java.util.Objects;
 import java.util.Set;
 
 import jdk.jfr.Description;
@@ -11,7 +10,6 @@ import jdk.jfr.Timespan;
 import jdk.jfr.internal.Control;
 import jdk.jfr.internal.PlatformEventType;
 import jdk.jfr.internal.Type;
-import jdk.jfr.internal.Utils;
 
 @MetadataDefinition
 @Label("Cutoff")
@@ -21,7 +19,8 @@ import jdk.jfr.internal.Utils;
 public final class CutoffSetting extends Control {
 
 	public CutoffSetting(PlatformEventType eventType, String defaultValue) {
-    }
+		super(defaultValue);
+	}
 
     @Override
     public String combine(Set<String> values) {

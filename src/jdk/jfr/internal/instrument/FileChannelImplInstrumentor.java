@@ -3,10 +3,6 @@ package jdk.jfr.internal.instrument;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import jdk.jfr.events.FileForceEvent;
-import jdk.jfr.events.FileReadEvent;
-import jdk.jfr.events.FileWriteEvent;
-
 @JIInstrumentationTarget("sun.nio.ch.FileChannelImpl")
 final class FileChannelImplInstrumentor {
 

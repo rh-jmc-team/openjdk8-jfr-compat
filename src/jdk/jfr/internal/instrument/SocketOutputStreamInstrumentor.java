@@ -2,8 +2,6 @@ package jdk.jfr.internal.instrument;
 
 import java.io.IOException;
 
-import jdk.jfr.events.SocketWriteEvent;
-
 @JIInstrumentationTarget("java.net.Socket$SocketOutputStream")
 final class SocketOutputStreamInstrumentor {
 

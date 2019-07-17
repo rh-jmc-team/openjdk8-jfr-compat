@@ -40,7 +40,6 @@ final class RepositoryChunk {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void finalize() {
     }
 

@@ -4,9 +4,6 @@ import java.io.PrintStream;
 import java.util.Deque;
 import java.util.List;
 
-import jdk.jfr.internal.consumer.ChunkHeader;
-import jdk.jfr.internal.consumer.RecordingInput;
-
 final class Disassemble extends Command {
 
     @Override

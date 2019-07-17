@@ -1,17 +1,9 @@
 package jdk.jfr.internal.jfc;
 
-import java.io.CharArrayReader;
-import java.io.CharArrayWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.text.ParseException;
-import jdk.internal.org.xml.sax.InputSource;
-import jdk.internal.org.xml.sax.SAXException;
-import jdk.internal.util.xml.SAXParser;
-import jdk.internal.util.xml.impl.SAXParserImpl;
 import jdk.jfr.Configuration;
-
-import jdk.jfr.internal.PrivateAccess;
 
 final class JFCParser {
 	

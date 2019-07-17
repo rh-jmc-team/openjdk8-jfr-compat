@@ -2,9 +2,7 @@ package jdk.jfr.internal.handlers;
 
 import jdk.jfr.EventType;
 import jdk.jfr.internal.EventControl;
-import jdk.jfr.internal.JVM;
 import jdk.jfr.internal.PlatformEventType;
-import jdk.jfr.internal.PrivateAccess;
 import jdk.jfr.internal.StringPool;
 
 public abstract class EventHandler {
@@ -12,6 +10,7 @@ public abstract class EventHandler {
 	protected final PlatformEventType platformEventType;
 
     EventHandler(boolean registered, EventType eventType, EventControl eventControl) {
+    	platformEventType = null;
     }
 
     final protected StringPool createStringFieldWriter() {

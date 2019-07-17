@@ -3,15 +3,13 @@ package jdk.jfr.internal.tool;
 import java.io.PrintWriter;
 import java.util.List;
 
-import jdk.jfr.EventType;
-import jdk.jfr.ValueDescriptor;
 import jdk.jfr.consumer.RecordedEvent;
-import jdk.jfr.consumer.RecordedFrame;
 import jdk.jfr.consumer.RecordedObject;
 
 final class JSONWriter extends EventPrintWriter {
 
     public JSONWriter(PrintWriter writer) {
+    	super(writer);
     }
 
     @Override

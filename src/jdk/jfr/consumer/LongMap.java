@@ -1,6 +1,5 @@
 package jdk.jfr.consumer;
 
-import java.util.HashMap;
 import java.util.Iterator;
 
 final class LongMap<T> implements Iterable<T> {

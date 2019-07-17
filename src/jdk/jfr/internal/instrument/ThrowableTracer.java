@@ -1,8 +1,5 @@
 package jdk.jfr.internal.instrument;
 
-import jdk.jfr.events.ErrorThrownEvent;
-import jdk.jfr.events.ExceptionThrownEvent;
-
 public final class ThrowableTracer {
 
     public static void traceError(Error e, String message) {

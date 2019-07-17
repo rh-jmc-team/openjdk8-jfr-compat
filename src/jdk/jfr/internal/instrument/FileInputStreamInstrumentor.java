@@ -2,14 +2,12 @@ package jdk.jfr.internal.instrument;
 
 import java.io.IOException;
 
-import jdk.jfr.events.FileReadEvent;
-
 @JIInstrumentationTarget("java.io.FileInputStream")
 final class FileInputStreamInstrumentor {
 
     @JIInstrumentationMethod
     public int read() throws IOException {
-        return null;
+        return 0;
     }
 
     @JIInstrumentationMethod

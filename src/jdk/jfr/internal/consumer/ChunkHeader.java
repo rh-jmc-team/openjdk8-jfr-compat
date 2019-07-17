@@ -1,11 +1,7 @@
 package jdk.jfr.internal.consumer;
 
-import java.io.DataInput;
 import java.io.IOException;
 
-import jdk.jfr.internal.LogLevel;
-import jdk.jfr.internal.LogTag;
-import jdk.jfr.internal.Logger;
 import jdk.jfr.internal.MetadataDescriptor;
 
 public final class ChunkHeader {

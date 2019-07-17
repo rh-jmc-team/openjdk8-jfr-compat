@@ -2,8 +2,6 @@ package jdk.jfr.internal.instrument;
 
 import java.io.IOException;
 
-import jdk.jfr.events.FileWriteEvent;
-
 @JIInstrumentationTarget("java.io.FileOutputStream")
 final class FileOutputStreamInstrumentor {
 

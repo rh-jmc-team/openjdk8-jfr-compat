@@ -1,6 +1,5 @@
 package jdk.jfr.internal.settings;
 
-import java.util.Objects;
 import java.util.Set;
 
 import jdk.jfr.Description;
@@ -20,6 +19,8 @@ import jdk.jfr.internal.Control;
 public final class EnabledSetting extends Control {
 
     public EnabledSetting(PlatformEventType eventType, String defaultValue) {
+        super(defaultValue);
+
     }
 
     @Override

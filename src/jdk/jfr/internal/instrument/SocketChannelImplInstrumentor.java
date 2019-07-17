@@ -1,11 +1,7 @@
 package jdk.jfr.internal.instrument;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-
-import jdk.jfr.events.SocketReadEvent;
-import jdk.jfr.events.SocketWriteEvent;
 
 @JIInstrumentationTarget("sun.nio.ch.SocketChannelImpl")
 final class SocketChannelImplInstrumentor {
@@ -17,7 +13,7 @@ final class SocketChannelImplInstrumentor {
 
     @JIInstrumentationMethod
     public long read(ByteBuffer[] dsts, int offset, int length) throws IOException {
-    	return bytesRead;
+    	return 0;
     }
 
     @JIInstrumentationMethod

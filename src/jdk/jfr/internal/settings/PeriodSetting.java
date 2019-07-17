@@ -1,6 +1,5 @@
 package jdk.jfr.internal.settings;
 
-import java.util.Objects;
 import java.util.Set;
 
 import jdk.jfr.Description;
@@ -10,7 +9,6 @@ import jdk.jfr.Name;
 import jdk.jfr.internal.PlatformEventType;
 import jdk.jfr.internal.Control;
 import jdk.jfr.internal.Type;
-import jdk.jfr.internal.Utils;
 
 @MetadataDefinition
 @Label("Period")
@@ -24,6 +22,8 @@ public final class PeriodSetting extends Control {
     public static final String NAME = "period";
 
     public PeriodSetting(PlatformEventType eventType, String defaultValue) {
+        super(defaultValue);
+
     }
 
     @Override

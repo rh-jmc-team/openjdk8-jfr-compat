@@ -1,6 +1,5 @@
 package jdk.jfr.internal.settings;
 
-import java.util.Objects;
 import java.util.Set;
 
 import jdk.jfr.Description;
@@ -20,6 +19,8 @@ import jdk.jfr.internal.Type;
 public final class StackTraceSetting extends Control {
  
     public StackTraceSetting(PlatformEventType eventType, String defaultValue) {
+        super(defaultValue);
+
     }
 
     @Override
