@@ -25,37 +25,18 @@
 
 package jdk.jfr.internal;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import jdk.internal.org.xml.sax.Attributes;
 import jdk.internal.org.xml.sax.EntityResolver;
 import jdk.internal.org.xml.sax.SAXException;
 import jdk.internal.org.xml.sax.helpers.DefaultHandler;
-import jdk.internal.util.xml.SAXParser;
-import jdk.internal.util.xml.impl.SAXParserImpl;
 import jdk.jfr.AnnotationElement;
-import jdk.jfr.Category;
-import jdk.jfr.Description;
-import jdk.jfr.Enabled;
-import jdk.jfr.Experimental;
-import jdk.jfr.Label;
-import jdk.jfr.Period;
-import jdk.jfr.Relational;
-import jdk.jfr.StackTrace;
-import jdk.jfr.Threshold;
-import jdk.jfr.TransitionFrom;
-import jdk.jfr.TransitionTo;
-import jdk.jfr.Unsigned;
 
 final class MetadataHandler extends DefaultHandler implements EntityResolver {
 

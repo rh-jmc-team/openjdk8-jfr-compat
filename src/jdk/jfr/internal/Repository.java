@@ -1,12 +1,7 @@
 package jdk.jfr.internal;
 
-import java.io.IOException;
-import java.nio.file.Path;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Set;
 
 import jdk.jfr.internal.SecuritySupport.SafePath;
 

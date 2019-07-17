@@ -80,6 +80,7 @@ public final class Utils {
     }
 
     public static long parseTimespan(String s) {
+    	return 0;
     }
 
     static List<Annotation> getAnnotations(Class<?> clazz) {

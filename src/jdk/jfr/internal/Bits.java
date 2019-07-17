@@ -1,7 +1,5 @@
 package jdk.jfr.internal;
 
-import jdk.internal.misc.Unsafe;
-
 final class Bits {
 
     static int putByte(long a, byte x) {

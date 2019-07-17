@@ -1,12 +1,9 @@
 package jdk.jfr.internal;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 final class ChunksChannel implements ReadableByteChannel {
@@ -33,7 +30,6 @@ final class ChunksChannel implements ReadableByteChannel {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void finalize() throws Throwable {
     }
 }

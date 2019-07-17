@@ -1,31 +1,15 @@
 package jdk.jfr.internal;
 
-import static jdk.jfr.internal.LogLevel.DEBUG;
-import static jdk.jfr.internal.LogLevel.WARN;
-import static jdk.jfr.internal.LogTag.JFR;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.channels.FileChannel;
-import java.nio.file.StandardOpenOption;
 import java.security.AccessControlContext;
-import java.security.AccessController;
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.StringJoiner;
 import java.util.TimerTask;
-import java.util.TreeMap;
 
 import jdk.jfr.Configuration;
-import jdk.jfr.FlightRecorderListener;
 import jdk.jfr.Recording;
 import jdk.jfr.RecordingState;
 import jdk.jfr.internal.SecuritySupport.SafePath;

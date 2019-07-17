@@ -1,14 +1,13 @@
 package jdk.jfr.internal;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import jdk.jfr.SettingDescriptor;
 
 public final class PlatformEventType extends Type {
 
     PlatformEventType(String name, long id, boolean isJDK, boolean dynamicSettings) {
+    	 super(name, Type.SUPER_TYPE_EVENT, id);
     }
 
     public void add(SettingDescriptor settingDescriptor) {
@@ -124,9 +123,6 @@ public final class PlatformEventType extends Type {
 
     public boolean setRegistered(boolean registered) {
         return false;
-    }
-
-    private void updateCommitable() {
     }
 
     public final boolean isRegistered() {

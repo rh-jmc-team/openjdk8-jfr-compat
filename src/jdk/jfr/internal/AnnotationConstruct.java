@@ -1,26 +1,11 @@
 package jdk.jfr.internal;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.Collections;
 import java.util.List;
 
 import jdk.jfr.AnnotationElement;
-import jdk.jfr.Description;
-import jdk.jfr.Label;
-import jdk.jfr.Unsigned;
 
 public final class AnnotationConstruct {
-
-    private static final class AnnotationInvokationHandler implements InvocationHandler {
-
-        @Override
-        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        	return null;
-        }
-    }
 
     public AnnotationConstruct(List<AnnotationElement> ann) {
     }
@@ -39,7 +24,6 @@ public final class AnnotationConstruct {
         return null;
     }
 
-    @SuppressWarnings("unchecked")
     public final <T> T getAnnotation(Class<? extends Annotation> clazz) {
         return null;
     }

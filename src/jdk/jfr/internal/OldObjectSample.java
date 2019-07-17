@@ -1,13 +1,7 @@
 package jdk.jfr.internal;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import jdk.jfr.Enabled;
-import jdk.jfr.RecordingState;
-import jdk.jfr.internal.settings.CutoffSetting;
-import jdk.jfr.internal.test.WhiteBox;
 
 public final class OldObjectSample {
 

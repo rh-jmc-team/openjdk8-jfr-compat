@@ -1,14 +1,6 @@
 package jdk.jfr.internal;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.security.AccessControlContext;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 abstract public class Control {

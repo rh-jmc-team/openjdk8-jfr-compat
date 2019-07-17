@@ -1,14 +1,9 @@
 package jdk.jfr.internal;
 
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.nio.channels.ReadableByteChannel;
-import java.nio.file.Path;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.Comparator;
-import java.util.Objects;
 
 import jdk.jfr.internal.SecuritySupport.SafePath;
 

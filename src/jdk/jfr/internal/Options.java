@@ -1,7 +1,6 @@
 package jdk.jfr.internal;
 
 import jdk.jfr.internal.SecuritySupport.SafePath;
-import jdk.internal.misc.Unsafe;
 
 public final class Options {
 

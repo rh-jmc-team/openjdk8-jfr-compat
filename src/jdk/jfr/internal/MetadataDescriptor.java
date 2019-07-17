@@ -6,20 +6,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 import jdk.jfr.EventType;
 
 public final class MetadataDescriptor {
 
     static final class Attribute {
-        final String name;
-        final String value;
+        final String name = null;
+        final String value = null;
     }
 
     static final class Element {
-        final String name;
+        final String name = null;
         final List<Element> elements = new ArrayList<>();
         final List<Attribute> attributes = new ArrayList<>();
 
@@ -27,6 +25,7 @@ public final class MetadataDescriptor {
         }
 
         long longValue(String name) {
+        	return 0;
         }
 
         String attribute(String name) {

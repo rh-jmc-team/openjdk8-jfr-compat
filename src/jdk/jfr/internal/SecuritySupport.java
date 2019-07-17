@@ -46,10 +46,10 @@ import jdk.jfr.Recording;
  * {@link AccessController#doPrivileged(PrivilegedAction)}
  */
 public final class SecuritySupport {
-    public  final static SafePath JFC_DIRECTORY = getPathInProperty("java.home", "lib/jfr");
+    public  final static SafePath JFC_DIRECTORY = null;
 
-    static final SafePath USER_HOME = getPathInProperty("user.home", null);
-    static final SafePath JAVA_IO_TMPDIR = getPathInProperty("java.io.tmpdir", null);
+    static final SafePath USER_HOME = null;
+    static final SafePath JAVA_IO_TMPDIR = null;
 
     final static class SecureRecorderListener implements FlightRecorderListener {
 
@@ -85,16 +85,8 @@ public final class SecuritySupport {
         }
     }
 
-    private interface RunnableWithCheckedException {
-        public void run() throws Exception;
-    }
-
-    private interface CallableWithoutCheckException<T> {
-        public T call();
-    }
-
     public static List<SafePath> getPredefinedJFCFiles() {
-
+    	return null;
     }
 
     static void makeVisibleToJFR(Class<?> clazz) {
