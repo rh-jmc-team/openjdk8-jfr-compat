@@ -1,16 +1,5 @@
 package jdk.jfr;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@MetadataDefinition
-@ContentType
-@Label("Timestamp")
-@Description("A point in time")
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.TYPE, ElementType.METHOD})
 public @interface Timestamp {
     /**
      * The unit for the difference, measured in milliseconds, between the current
