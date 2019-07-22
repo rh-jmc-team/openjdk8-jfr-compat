@@ -12,18 +12,18 @@ import java.util.ArrayList;
 public class AnnotationElementTest{
 	public static void main (String args[]) {
 		List<AnnotationElement> typeAnnotations = new ArrayList<>();
-   		typeAnnotations.add(new AnnotationElement(Name.class, "com.example.HelloWorld"));
-   		typeAnnotations.add(new AnnotationElement(Label.class, "Hello World"));
-	   	typeAnnotations.add(new AnnotationElement(Description.class, "Helps programmer getting started"));
+		typeAnnotations.add(new AnnotationElement(Name.class, "com.example.HelloWorld"));
+		typeAnnotations.add(new AnnotationElement(Label.class, "Hello World"));
+		typeAnnotations.add(new AnnotationElement(Description.class, "Helps programmer getting started"));
 
-   		List<AnnotationElement> fieldAnnotations = new ArrayList<>();
+		List<AnnotationElement> fieldAnnotations = new ArrayList<>();
 		fieldAnnotations.add(new AnnotationElement(Label.class, "Message"));
 
-  	 	List<ValueDescriptor> fields = new ArrayList<>();
-   		fields.add(new ValueDescriptor(String.class, "message", fieldAnnotations));
+		List<ValueDescriptor> fields = new ArrayList<>();
+		fields.add(new ValueDescriptor(String.class, "message", fieldAnnotations));
 
-   		EventFactory f = EventFactory.create(typeAnnotations, fields);
-   		Event event = f.newEvent();
-  	  	event.commit();
+		EventFactory f = EventFactory.create(typeAnnotations, fields);
+		Event event = f.newEvent();
+		event.commit();
 	}
 }
