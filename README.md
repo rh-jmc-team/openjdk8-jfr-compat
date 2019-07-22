@@ -1,5 +1,5 @@
 # openjdk8-jfr-compat
-Creates jfr-compat-1.0-SNAPSHOT.jar.  Adding this jar to your classpath provides support for JFR in OpenJDK 8.
+A JFR compatibility API for OpenJDK 8. JFR support is provided through the resulting jar, jfr-compat-1.0-SNAPSHOT.jar, that contains JFR OpenJDK 11 classes with empty implementations.
 ## Build
 
 ```sh
