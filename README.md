@@ -3,5 +3,14 @@ Creates jfr-compat-1.0-SNAPSHOT.jar.  Adding this jar to your classpath provides
 ## Build
 
 ```sh
-maven package
+mvn package
+```
+## Usage
+Build your java application with the compatibility jar added to the applciation's classpath
+```sh
+javac -cp jfr-compat-1.0-SNAPSHOT.jar MyApp.java
+```
+Run your java application with the compatibility jar added to the application's classpath
+```sh
+java -cp jfr-compat-1.0-SNAPSHOT.jar:. MyApp
 ```
