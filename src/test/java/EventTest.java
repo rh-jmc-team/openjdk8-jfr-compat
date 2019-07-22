@@ -1,7 +1,7 @@
 import jdk.jfr.Event;
 import jdk.jfr.Label;
 
-public class Test {
+public class EventTest {
 
     @Label("RobotEvent_Storage_Request")
     static final class RobotEventStorageRequested extends Event {
