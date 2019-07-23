@@ -43,8 +43,12 @@ import jdk.jfr.Label;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.junit.Test;
+
 public class AnnotationElementTest{
-	public static void main (String args[]) {
+	
+	@Test
+	public void testAnnotationElement() {
 		List<AnnotationElement> typeAnnotations = new ArrayList<>();
 		typeAnnotations.add(new AnnotationElement(Name.class, "com.example.HelloWorld"));
 		typeAnnotations.add(new AnnotationElement(Label.class, "Hello World"));

@@ -35,6 +35,8 @@
 import jdk.jfr.Event;
 import jdk.jfr.Label;
 
+import org.junit.Test;
+
 public class EventTest {
 
     @Label("RobotEvent_Storage_Request")
@@ -46,7 +48,8 @@ public class EventTest {
         long available;
     }
     
-    public static void main(String args[]) {
+    @Test
+    public void testEventLifeCycle(){
         RobotEventStorageRequested jfrEvent = new RobotEventStorageRequested();
         jfrEvent.available = 1;
         jfrEvent.requested = 1;

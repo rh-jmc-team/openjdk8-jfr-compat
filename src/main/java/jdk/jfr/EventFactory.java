@@ -36,24 +36,31 @@ package jdk.jfr;
 
 import java.util.List;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.reflect.Method;
+
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+
 public final class EventFactory {
 
-    public static EventFactory create(List<AnnotationElement> annotationElements, List<ValueDescriptor> fields) {
-    	return null;
-    }
+	public static EventFactory create(List<AnnotationElement> annotationElements, List<ValueDescriptor> fields) {
+		return new EventFactory();
+	}
 
-    public Event newEvent() {
-    	return null;
-    }
+	public Event newEvent() {
+		return new Event(){};
+	}
 
-    public EventType getEventType() {
-    	return null;
-    }
+	public EventType getEventType() {
+		return new EventType();
+	}
 
-    public void register() {
-    }
+	public void register() {
+	}
 
-    public void unregister() {
-    }
+	public void unregister() {
+	}
 
 }

@@ -38,8 +38,12 @@ import jdk.jfr.Configuration;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.junit.Test;
+
 public class RecordingTest {
-	   public static void main (String args[]) throws Exception {
+	
+	@Test
+	public void testRecordingLifeCycle() throws Exception {
 		   Configuration c = Configuration.getConfiguration("default");
 		   Recording r = new Recording(c);
 		   r.start();
