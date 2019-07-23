@@ -39,12 +39,12 @@ import jdk.jfr.ValueDescriptor;
 
 public final class RecordedClass extends RecordedObject {
 
-        public int getModifiers() {
-        	return 0;
+    public int getModifiers() {
+        return 0;
     }
 
     public RecordedClassLoader getClassLoader() {
-        return null;
+        return new RecordedClassLoader();
     }
 
     public String getName() {

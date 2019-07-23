@@ -37,7 +37,7 @@ package jdk.jfr.consumer;
 public final class RecordedMethod extends RecordedObject {
 
    public RecordedClass getType() {
-        return null;
+        return new RecordedClass();
     }
 
     public String getName() {

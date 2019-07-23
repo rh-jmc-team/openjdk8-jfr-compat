@@ -36,14 +36,15 @@ package jdk.jfr;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
+import java.util.ArrayList;
 
 public final class EventType {
     public List<ValueDescriptor> getFields() {
-        return null;
+        return new ArrayList<ValueDescriptor>();
     }
 
     public ValueDescriptor getField(String name) {
-        return null;
+        return new ValueDescriptor();
     }
 
     public String getName() {
@@ -59,7 +60,7 @@ public final class EventType {
     }
 
     public List<AnnotationElement> getAnnotationElements() {
-        return null;
+    	return new ArrayList<AnnotationElement>();
     }
 
     public boolean isEnabled() {
@@ -77,16 +78,16 @@ public final class EventType {
 
     
     public static EventType getEventType(Class<? extends Event> eventClass) {
-        return null;
+        return new EventType();
     }
 
     public List<SettingDescriptor> getSettingDescriptors() {
-        return null;
+        return new ArrayList<SettingDescriptor>();
     }
 
     
     public List<String> getCategoryNames() {
-        return null;
+        return new ArrayList<String>();
     }
 
 }

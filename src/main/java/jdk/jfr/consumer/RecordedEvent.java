@@ -37,6 +37,7 @@ package jdk.jfr.consumer;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.ArrayList;
 
 import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
@@ -44,15 +45,15 @@ import jdk.jfr.ValueDescriptor;
 public final class RecordedEvent extends RecordedObject {
      
 	public RecordedStackTrace getStackTrace() {
-        return null;
+        return new RecordedStackTrace();
     }
 
     public RecordedThread getThread() {
-        return null;
+        return new RecordedThread();
     }
 
     public EventType getEventType() {
-        return null;
+        return new EventType();
     }
 
     public Instant getStartTime() {
@@ -69,6 +70,6 @@ public final class RecordedEvent extends RecordedObject {
 
     @Override
     public List<ValueDescriptor> getFields() {
-        return null;
+        return new ArrayList<ValueDescriptor>();
     }
 }

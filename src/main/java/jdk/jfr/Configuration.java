@@ -39,6 +39,7 @@ import java.io.Reader;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 
@@ -69,18 +70,18 @@ public final class Configuration {
     }
     
     public static Configuration create(Path path) throws IOException, ParseException {
-    	return null;
+    	return new Configuration();
     }
 
     public static Configuration create(Reader reader) throws IOException, ParseException {
-    	return null;
+    	return new Configuration();
     }
 
     public static Configuration getConfiguration(String name) throws IOException, ParseException {
-        return null;
+    	return new Configuration();
     }
 
     public static List<Configuration> getConfigurations() {
-        return null;
+        return new ArrayList<Configuration>();
     }
 }

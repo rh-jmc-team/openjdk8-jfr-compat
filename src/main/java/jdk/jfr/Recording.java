@@ -41,6 +41,7 @@ import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
+import java.util.HashMap;
 
 public final class Recording implements Closeable {
 
@@ -64,7 +65,7 @@ public final class Recording implements Closeable {
     }
 
     public Map<String, String> getSettings() {
-    	return null;
+    	return new HashMap<String, String>();
     }
 
     public long getSize() {
@@ -103,7 +104,7 @@ public final class Recording implements Closeable {
     }
 
     public Recording copy(boolean stop) {
-        return null;
+        return new Recording();
     }
 
     public void dump(Path destination) throws IOException {
@@ -156,20 +157,40 @@ public final class Recording implements Closeable {
 
 
     public EventSettings enable(String name) {
-        return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     public EventSettings disable(String name) {
-    	return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     public EventSettings enable(Class<? extends Event> eventClass) {
-        return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     
     public EventSettings disable(Class<? extends Event> eventClass) {
-    	return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
 }

@@ -53,6 +53,6 @@ public final class RecordedFrame extends RecordedObject {
     }
 
     public RecordedMethod getMethod() {
-        return null;
+        return new RecordedMethod();
     }
 }

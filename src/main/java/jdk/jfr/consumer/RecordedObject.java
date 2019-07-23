@@ -37,6 +37,7 @@ package jdk.jfr.consumer;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.ArrayList;
 
 import jdk.jfr.ValueDescriptor;
 
@@ -51,7 +52,7 @@ public class RecordedObject {
     }
 
     public List<ValueDescriptor> getFields() {
-        return null;
+        return new ArrayList<ValueDescriptor>();
     }
 
     public final boolean getBoolean(String name) {
@@ -99,11 +100,11 @@ public class RecordedObject {
     }
 
     public final RecordedClass getClass(String name) {
-        return null;
+        return new RecordedClass();
     }
 
     public final RecordedThread getThread(String name) {
-        return null;
+        return new RecordedThread();
     }
 
     @Override

@@ -36,6 +36,7 @@ package jdk.jfr;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 public final class AnnotationElement {
@@ -50,23 +51,23 @@ public final class AnnotationElement {
     }
 
     public List<Object> getValues() {
-    	return null;
+    	return new ArrayList<Object>();
     }
 
     public List<ValueDescriptor> getValueDescriptors() {
-        return null;
+    	return new ArrayList<ValueDescriptor>();
     }
 
     public List<AnnotationElement> getAnnotationElements() {
-        return null;
+    	return new ArrayList<AnnotationElement>();
     }
 
     public String getTypeName() {
-        return null;
+    	return null;
     }
 
     public Object getValue(String name) {
-    	return null;
+    	return new Object();
     }
 
     public boolean hasValue(String name) {

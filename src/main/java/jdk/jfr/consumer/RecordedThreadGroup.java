@@ -41,6 +41,6 @@ public final class RecordedThreadGroup extends RecordedObject {
     }
 
     public RecordedThreadGroup getParent() {
-        return null;
+        return new RecordedThreadGroup();
     }
 }

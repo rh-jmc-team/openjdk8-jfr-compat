@@ -35,12 +35,13 @@
 package jdk.jfr.consumer;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public final class RecordedStackTrace extends RecordedObject {
 
     @SuppressWarnings("unchecked")
     public List<RecordedFrame> getFrames() {
-        return null;
+        return new ArrayList<RecordedFrame>();
     }
 
     public boolean isTruncated() {

@@ -39,23 +39,48 @@ import java.time.Duration;
 public abstract class EventSettings {
 
     final public EventSettings withStackTrace() {
-        return null;
+        return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     final public EventSettings withoutStackTrace() {
-        return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     final public EventSettings withoutThreshold() {
-        return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     final public EventSettings withPeriod(Duration duration) {
-        return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     final public EventSettings withThreshold(Duration duration) {
-    	return null;
+    	return new EventSettings() {
+        	@Override
+        	public EventSettings with(String name, String value) {
+        		return null;
+        	};
+        };
     }
 
     abstract public EventSettings with(String name, String value);
