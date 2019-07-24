@@ -42,44 +42,44 @@ import java.util.Map;
 public final class AnnotationElement {
 
 	public AnnotationElement(Class<? extends Annotation> annotationType, Map<String, Object> values) {
-    }
+	}
 
-    public AnnotationElement(Class<? extends Annotation> annotationType, Object value) {
-    }
+	public AnnotationElement(Class<? extends Annotation> annotationType, Object value) {
+	}
 
-    public AnnotationElement(Class<? extends Annotation> annotationType) {
-    }
+	public AnnotationElement(Class<? extends Annotation> annotationType) {
+	}
 
-    public List<Object> getValues() {
-    	return new ArrayList<Object>();
-    }
+	public List<Object> getValues() {
+		return new ArrayList<Object>();
+	}
 
-    public List<ValueDescriptor> getValueDescriptors() {
-    	return new ArrayList<ValueDescriptor>();
-    }
+	public List<ValueDescriptor> getValueDescriptors() {
+		return new ArrayList<ValueDescriptor>();
+	}
 
-    public List<AnnotationElement> getAnnotationElements() {
-    	return new ArrayList<AnnotationElement>();
-    }
+	public List<AnnotationElement> getAnnotationElements() {
+		return new ArrayList<AnnotationElement>();
+	}
 
-    public String getTypeName() {
-    	return null;
-    }
+	public String getTypeName() {
+		return null;
+	}
 
-    public Object getValue(String name) {
-    	return new Object();
-    }
+	public Object getValue(String name) {
+		return new Object();
+	}
 
-    public boolean hasValue(String name) {
-        return false;
-    }
+	public boolean hasValue(String name) {
+	    return false;
+	}
 
-    public final <A> A getAnnotation(Class<? extends Annotation> annotationType) {
-    	return null;
-    }
+	public final <A> A getAnnotation(Class<? extends Annotation> annotationType) {
+		return null;
+	}
 
-    public long getTypeId() {
-        return 0;
-    }
+	public long getTypeId() {
+	    return 0;
+	}
 
 }

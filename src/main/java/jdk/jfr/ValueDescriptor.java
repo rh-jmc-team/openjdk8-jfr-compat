@@ -41,10 +41,10 @@ public final class ValueDescriptor {
 	public ValueDescriptor() {
 	}
 
-    public ValueDescriptor(Class<?> type, String name) {
-    }
+	public ValueDescriptor(Class<?> type, String name) {
+	}
 
-    public ValueDescriptor(Class<?> type, String nam, List<AnnotationElement> annotations) {	
-    }
+	public ValueDescriptor(Class<?> type, String name, List<AnnotationElement> annotations) {
+	}
 
 }
