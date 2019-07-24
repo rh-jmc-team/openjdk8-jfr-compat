@@ -36,7 +36,11 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import jdk.jfr.EventSettings;
+import jdk.jfr.Recording;
+
 import java.time.Duration;
+
+import java.nio.file.Files;
 
 public class EventSettingsTest {
 
@@ -56,5 +60,16 @@ public class EventSettingsTest {
 		Assert.assertNotNull(es.withoutThreshold());
 		Assert.assertNotNull(es.withPeriod(Duration.ofSeconds(1)));
 		Assert.assertNotNull(es.withThreshold(Duration.ofSeconds(1)));
+	}
+
+	@Test
+	public void testEventSettingsUsage() throws Exception {
+		Recording r = new Recording();
+		r.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));
+		r.enable("jdk.FileWrite").withoutStackTrace().withThreshold(Duration.ofNanos(10));
+		r.start();
+		Thread.sleep(100);
+		r.stop();
+		r.dump(Files.createTempFile("recording", ".jfr"));
 	}
 }
