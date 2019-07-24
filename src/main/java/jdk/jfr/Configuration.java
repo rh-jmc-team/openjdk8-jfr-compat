@@ -41,12 +41,13 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.HashMap;
 
 
 public final class Configuration {
 
 	public Map<String, String> getSettings() {
-        return null;
+        return new HashMap<String,String>();
     }
 
     public String getName() {

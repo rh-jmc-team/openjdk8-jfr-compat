@@ -34,14 +34,31 @@
 
 import jdk.jfr.Recording;
 import jdk.jfr.Configuration;
+import jdk.jfr.Event;
+import jdk.jfr.EventFactory;
+import jdk.jfr.ValueDescriptor;
+import jdk.jfr.AnnotationElement;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
+import org.junit.Before;
 
 public class RecordingTest {
-	
+
+	private Event testEvent;
+	@Before
+	public void before() {
+		List<AnnotationElement> annotationElements = new ArrayList<>();
+		List<ValueDescriptor> fields = new ArrayList<>();
+		EventFactory f = EventFactory.create(annotationElements, fields);
+		testEvent = f.newEvent();
+	}
+
 	@Test
 	public void testRecordingLifeCycle() throws Exception {
 		   Configuration c = Configuration.getConfiguration("default");
@@ -52,5 +69,14 @@ public class RecordingTest {
 		   r.stop();
 		   Path jfrFilePath = Paths.get(System.getProperty("user.home"), "jfr_temp.jfr");
 		   r.dump(jfrFilePath);
+	   }
+
+	@Test
+	public void testRecordingEnableDisable() throws Exception {
+		   Configuration c = Configuration.getConfiguration("default");
+		   Recording r = new Recording(c);
+
+		   r.enable(testEvent.getClass()).with("threshold","20 ms");
+		   r.disable(testEvent.getClass()).with("threshold","20 ms");
 	   }
 }

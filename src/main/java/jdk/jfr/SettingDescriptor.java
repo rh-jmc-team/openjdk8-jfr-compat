@@ -36,6 +36,7 @@ package jdk.jfr;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
+import java.util.ArrayList;
 
 public final class SettingDescriptor {
 
@@ -68,7 +69,7 @@ public final class SettingDescriptor {
     }
 
     public List<AnnotationElement> getAnnotationElements() {
-        return null;
+        return new ArrayList<AnnotationElement>();
     }
 
     public String getDefaultValue() {

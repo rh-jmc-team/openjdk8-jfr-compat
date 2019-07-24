@@ -104,7 +104,7 @@ public final class Recording implements Closeable {
     }
 
     public Recording copy(boolean stop) {
-        return new Recording();
+        return this;
     }
 
     public void dump(Path destination) throws IOException {
@@ -155,36 +155,23 @@ public final class Recording implements Closeable {
     public void setDuration(Duration duration) {
     }
 
-
     public EventSettings enable(String name) {
-    	return new EventSettings() {
-        	@Override
-        	public EventSettings with(String name, String value) {
-        		return null;
-        	};
-        };
+    	return getNewEventSettings();
     }
 
     public EventSettings disable(String name) {
-    	return new EventSettings() {
-        	@Override
-        	public EventSettings with(String name, String value) {
-        		return null;
-        	};
-        };
+    	return getNewEventSettings();
     }
 
     public EventSettings enable(Class<? extends Event> eventClass) {
-    	return new EventSettings() {
-        	@Override
-        	public EventSettings with(String name, String value) {
-        		return null;
-        	};
-        };
+    	return getNewEventSettings();
     }
-
     
     public EventSettings disable(Class<? extends Event> eventClass) {
+    	return getNewEventSettings();
+    }
+
+    private EventSettings getNewEventSettings() {
     	return new EventSettings() {
         	@Override
         	public EventSettings with(String name, String value) {
@@ -192,5 +179,4 @@ public final class Recording implements Closeable {
         	};
         };
     }
-
 }
