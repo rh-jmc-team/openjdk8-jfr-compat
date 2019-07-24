@@ -45,7 +45,7 @@ public final class RecordedThread extends RecordedObject {
     }
 
     public RecordedThreadGroup getThreadGroup() {
-        return null;
+        return new RecordedThreadGroup();
     }
 
     public String getJavaName() {

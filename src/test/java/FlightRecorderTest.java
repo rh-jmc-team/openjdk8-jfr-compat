@@ -32,25 +32,38 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import jdk.jfr.Recording;
-import jdk.jfr.Configuration;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Before;
 
-public class RecordingTest {
-	
+import jdk.jfr.FlightRecorder;
+import jdk.jfr.Event;
+import jdk.jfr.EventFactory;
+import jdk.jfr.ValueDescriptor;
+import jdk.jfr.AnnotationElement;
+import jdk.jfr.FlightRecorderListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FlightRecorderTest {
+
+	private Event testEvent;
+
+	@Before
+	public void before() {
+		List<AnnotationElement> annotationElements = new ArrayList<>();
+		List<ValueDescriptor> fields = new ArrayList<>();
+		EventFactory f = EventFactory.create(annotationElements, fields);
+		testEvent = f.newEvent();
+	}
+
 	@Test
-	public void testRecordingLifeCycle() throws Exception {
-		   Configuration c = Configuration.getConfiguration("default");
-		   Recording r = new Recording(c);
-		   r.start();
-		   System.gc();
-		   Thread.sleep(100);
-		   r.stop();
-		   Path jfrFilePath = Paths.get(System.getProperty("user.home"), "jfr_temp.jfr");
-		   r.dump(jfrFilePath);
-	   }
+	public void testFlightRecorderRegisterUnregister() {
+		FlightRecorder fr = FlightRecorder.getFlightRecorder();
+		Assert.assertNotNull(fr);
+
+		fr.register(testEvent.getClass());
+		fr.unregister(testEvent.getClass());
+	}
 }
