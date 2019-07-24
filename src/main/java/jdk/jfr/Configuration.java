@@ -47,42 +47,42 @@ import java.util.HashMap;
 public final class Configuration {
 
 	public Map<String, String> getSettings() {
-        return new HashMap<String,String>();
-    }
+	    return new HashMap<String,String>();
+	}
 
-    public String getName() {
-        return null;
-    }
+	public String getName() {
+	    return null;
+	}
 
-    public String getLabel() {
-        return null;
-    }
+	public String getLabel() {
+	    return null;
+	}
 
-    public String getDescription() {
-        return null;
-    }
+	public String getDescription() {
+	    return null;
+	}
 
-    public String getProvider() {
-        return null;
-    }
+	public String getProvider() {
+	    return null;
+	}
 
-    public String getContents() {
-        return null;
-    }
-    
-    public static Configuration create(Path path) throws IOException, ParseException {
-    	return new Configuration();
-    }
+	public String getContents() {
+	    return null;
+	}
 
-    public static Configuration create(Reader reader) throws IOException, ParseException {
-    	return new Configuration();
-    }
+	public static Configuration create(Path path) throws IOException, ParseException {
+		return new Configuration();
+	}
 
-    public static Configuration getConfiguration(String name) throws IOException, ParseException {
-    	return new Configuration();
-    }
+	public static Configuration create(Reader reader) throws IOException, ParseException {
+		return new Configuration();
+	}
 
-    public static List<Configuration> getConfigurations() {
-        return new ArrayList<Configuration>();
-    }
+	public static Configuration getConfiguration(String name) throws IOException, ParseException {
+		return new Configuration();
+	}
+
+	public static List<Configuration> getConfigurations() {
+	    return new ArrayList<Configuration>();
+	}
 }

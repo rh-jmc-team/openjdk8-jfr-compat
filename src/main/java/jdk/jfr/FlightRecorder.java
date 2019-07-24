@@ -42,46 +42,47 @@ import java.util.Objects;
 public final class FlightRecorder {
    
 	public List<Recording> getRecordings() {
-        return new ArrayList<Recording>();
-    }
+	    return new ArrayList<Recording>();
+	}
 
-    public Recording takeSnapshot() {
-        return new Recording();
-    }
+	public Recording takeSnapshot() {
+	    return new Recording();
+	}
 
-    public static void register(Class<? extends Event> eventClass) {
-    }
+	public static void register(Class<? extends Event> eventClass) {
+	}
 
-    public static void unregister(Class<? extends Event> eventClass) {
-    }
+	public static void unregister(Class<? extends Event> eventClass) {
+	}
 
-    public static FlightRecorder getFlightRecorder() throws IllegalStateException, SecurityException {
-        return new FlightRecorder();
-    }
+	public static FlightRecorder getFlightRecorder() throws IllegalStateException, SecurityException {
+	    return new FlightRecorder();
+	}
 
-    public static void addPeriodicEvent(Class<? extends Event> eventClass, Runnable hook) throws SecurityException {
-    }
+	public static void addPeriodicEvent(Class<? extends Event> eventClass, Runnable hook) throws SecurityException {
+	}
 
-    public static boolean removePeriodicEvent(Runnable hook) throws SecurityException {
-        return false;
-    }
+	public static boolean removePeriodicEvent(Runnable hook) throws SecurityException {
+	    return false;
+	}
 
-    public List<EventType> getEventTypes() {
-        return new ArrayList<EventType>();
-    }
+	public List<EventType> getEventTypes() {
+	    return new ArrayList<EventType>();
+	}
 
-    public static void addListener(FlightRecorderListener changeListener) {
-    }
+	public static void addListener(FlightRecorderListener changeListener) {
+	}
 
-    public static boolean removeListener(FlightRecorderListener changeListener) {
-         return false;
-    }
+	public static boolean removeListener(FlightRecorderListener changeListener) {
+	     return false;
+	}
 
-    public static boolean isAvailable() {
-        return false;
-    }
+	public static boolean isAvailable() {
+	    return false;
+	}
 
-    public static boolean isInitialized() {
-        return false;
-    }
+	public static boolean isInitialized() {
+	    return false;
+	}
+
 }

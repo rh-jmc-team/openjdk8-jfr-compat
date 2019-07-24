@@ -39,20 +39,20 @@ import org.junit.Test;
 
 public class EventTest {
 
-	@Label("RobotEvent_Storage_Request")
+	@Label("TestEvent")
 	static final class EventInstance extends Event {
-	    @Label("Requested")
-	    long requested;
+		@Label("Requested")
+		long requested;
 
-	    @Label("Available")
-	    long available;
+		@Label("Available")
+		long available;
 	}
 
 	@Test
 	public void testEventLifeCycle(){
 		EventInstance jfrEvent = new EventInstance();
-	    jfrEvent.available = 1;
-	    jfrEvent.requested = 1;
-	    jfrEvent.commit();
+		jfrEvent.available = 1;
+		jfrEvent.requested = 1;
+		jfrEvent.commit();
 	}
 }

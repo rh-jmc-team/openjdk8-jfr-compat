@@ -43,33 +43,34 @@ import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
 
 public final class RecordedEvent extends RecordedObject {
-     
+
 	public RecordedStackTrace getStackTrace() {
-        return new RecordedStackTrace();
-    }
+	    return new RecordedStackTrace();
+	}
 
-    public RecordedThread getThread() {
-        return new RecordedThread();
-    }
+	public RecordedThread getThread() {
+	    return new RecordedThread();
+	}
 
-    public EventType getEventType() {
-        return new EventType();
-    }
+	public EventType getEventType() {
+	    return new EventType();
+	}
 
-    public Instant getStartTime() {
-        return null;
-    }
+	public Instant getStartTime() {
+	    return null;
+	}
 
-    public Instant getEndTime() {
-        return null;
-    }
+	public Instant getEndTime() {
+	    return null;
+	}
 
-    public Duration getDuration() {
-        return null;
-    }
+	public Duration getDuration() {
+	    return null;
+	}
 
-    @Override
-    public List<ValueDescriptor> getFields() {
-        return new ArrayList<ValueDescriptor>();
-    }
+	@Override
+	public List<ValueDescriptor> getFields() {
+	    return new ArrayList<ValueDescriptor>();
+	}
+
 }

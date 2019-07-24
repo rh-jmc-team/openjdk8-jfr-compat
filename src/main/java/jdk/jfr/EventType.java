@@ -39,7 +39,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public final class EventType {
-    public List<ValueDescriptor> getFields() {
+
+	public List<ValueDescriptor> getFields() {
         return new ArrayList<ValueDescriptor>();
     }
 
@@ -71,12 +72,10 @@ public final class EventType {
         return null;
     }
 
-    
     public <A extends Annotation> A getAnnotation(Class<A> annotationClass) {
     	return null;
     }
 
-    
     public static EventType getEventType(Class<? extends Event> eventClass) {
         return new EventType();
     }
@@ -84,7 +83,6 @@ public final class EventType {
     public List<SettingDescriptor> getSettingDescriptors() {
         return new ArrayList<SettingDescriptor>();
     }
-
     
     public List<String> getCategoryNames() {
         return new ArrayList<String>();
