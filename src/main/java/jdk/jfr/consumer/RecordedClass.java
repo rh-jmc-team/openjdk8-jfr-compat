@@ -36,11 +36,11 @@ public final class RecordedClass extends RecordedObject {
     }
 
     public RecordedClassLoader getClassLoader() {
-        return new RecordedClassLoader();
+        return null;
     }
 
     public String getName() {
-        return null;
+        return new String("");
     }
 
     public long getId() {

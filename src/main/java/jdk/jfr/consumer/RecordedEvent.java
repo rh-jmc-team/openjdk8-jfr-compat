@@ -37,11 +37,11 @@ import jdk.jfr.ValueDescriptor;
 public final class RecordedEvent extends RecordedObject {
 
 	public RecordedStackTrace getStackTrace() {
-	    return new RecordedStackTrace();
+	    return null;
 	}
 
 	public RecordedThread getThread() {
-	    return new RecordedThread();
+	    return null;
 	}
 
 	public EventType getEventType() {
@@ -49,15 +49,15 @@ public final class RecordedEvent extends RecordedObject {
 	}
 
 	public Instant getStartTime() {
-	    return null;
+	    return Instant.now();
 	}
 
 	public Instant getEndTime() {
-	    return null;
+	    return Instant.now();
 	}
 
 	public Duration getDuration() {
-	    return null;
+	    return Duration.ZERO;
 	}
 
 	@Override

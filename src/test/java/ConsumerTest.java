@@ -25,10 +25,9 @@
  */
 
 import jdk.jfr.consumer.RecordingFile;
-import jdk.jfr.consumer.RecordedMethod;
-import jdk.jfr.consumer.RecordedFrame;
-import jdk.jfr.consumer.RecordedStackTrace;
 import jdk.jfr.consumer.RecordedEvent;
+import jdk.jfr.consumer.RecordedClass;
+
 
 import java.util.List;
 
@@ -39,22 +38,45 @@ import java.io.IOException;
 
 import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Before;
 
 public class ConsumerTest {
 
-	@Test
-	public void testConsumerClasses() throws IOException {
-		Path recordingPath = Paths.get(System.getProperty("user.home"),"recording.jfr");
-		RecordingFile file = new RecordingFile(recordingPath);
-		Assert.assertNotNull(file);
+	private RecordingFile recordingFile;
+	@Before
+	public void before() {
+		try {
+			Path recordingPath = Paths.get(System.getProperty("user.home"),"recording.jfr");
+			recordingFile = new RecordingFile(recordingPath);
+		} catch (IOException e) {
+			 System.err.println("Failed to create recording file");
+		}
+		Assert.assertNotNull(recordingFile);
+	}
 
-		RecordedEvent event = file.readEvent();
+	@Test
+	public void testRecordedEventMethodsReturnNotNull() throws IOException {
+		RecordedEvent event = recordingFile.readEvent();
 		Assert.assertNotNull(event);
 
-		RecordedStackTrace stackTrace = event.getStackTrace();
-		Assert.assertNotNull(stackTrace);
+		Assert.assertNotNull(event.getEventType());
+		Assert.assertNotNull(event.getStartTime());
+		Assert.assertNotNull(event.getEndTime());
+		Assert.assertNotNull(event.getDuration());
+		Assert.assertNotNull(event.getFields());
 
-		List<RecordedFrame> frames= stackTrace.getFrames();
-		Assert.assertNotNull(frames);
 	}
+
+	@Test
+	public void testRecordedClassMethodsReturnNotNull() throws IOException {
+		RecordedEvent event = recordingFile.readEvent();
+		Assert.assertNotNull(event);
+
+		RecordedClass recordedClass = event.getClass("testClass");
+		Assert.assertNotNull(recordedClass);
+
+		String name = recordedClass.getName();
+		Assert.assertNotNull(name);
+	}
+
 }

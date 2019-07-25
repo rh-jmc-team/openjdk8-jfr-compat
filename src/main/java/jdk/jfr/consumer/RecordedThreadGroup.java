@@ -33,6 +33,6 @@ public final class RecordedThreadGroup extends RecordedObject {
     }
 
     public RecordedThreadGroup getParent() {
-        return new RecordedThreadGroup();
+        return null;
     }
 }

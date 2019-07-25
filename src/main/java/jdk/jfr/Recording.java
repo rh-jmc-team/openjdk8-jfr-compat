@@ -81,14 +81,14 @@ public final class Recording implements Closeable {
     }
 
     public String getName() {
-        return null;
+        return new String("");
     }
 
     public void setSettings(Map<String, String> settings) {
     }
 
     public RecordingState getState() {
-        return null;
+        return RecordingState.CLOSED;
     }
 
     @Override

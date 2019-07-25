@@ -33,11 +33,11 @@ public final class RecordedFrame extends RecordedObject {
     }
 
     public int getBytecodeIndex() {
-        return 0;
+        return -1;
     }
 
     public int getLineNumber() {
-        return 0;
+        return -1;
     }
 
     public String getType() {

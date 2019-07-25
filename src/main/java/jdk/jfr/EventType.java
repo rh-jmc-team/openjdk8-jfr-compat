@@ -37,11 +37,11 @@ public final class EventType {
     }
 
     public ValueDescriptor getField(String name) {
-        return new ValueDescriptor();
+        return null;
     }
 
     public String getName() {
-        return null;
+        return new String("");
     }
 
     public String getLabel() {
@@ -69,7 +69,7 @@ public final class EventType {
     }
 
     public static EventType getEventType(Class<? extends Event> eventClass) {
-        return new EventType();
+        return null;
     }
 
     public List<SettingDescriptor> getSettingDescriptors() {

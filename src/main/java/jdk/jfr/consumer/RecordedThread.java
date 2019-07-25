@@ -45,7 +45,7 @@ public final class RecordedThread extends RecordedObject {
     }
 
     public long getJavaThreadId() {
-        return 0;
+        return -1;
     }
 
     public long getId() {

@@ -29,7 +29,7 @@ package jdk.jfr.consumer;
 public final class RecordedClassLoader extends RecordedObject {
 
     public RecordedClass getType() {
-    	return new RecordedClass();
+    	return null;
     }
 
    public String getName() {
