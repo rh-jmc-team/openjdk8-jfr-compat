@@ -1,3 +1,4 @@
+package src.test.java;
 /*
  * Copyright (c) 2019, Oracle and/or its affiliates. All rights reserved.
  * Copyright (c) 2019, Red Hat Inc. All rights reserved.
@@ -34,35 +35,32 @@
 
 import org.junit.Test;
 import org.junit.Assert;
-import org.junit.Before;
 
-import jdk.jfr.FlightRecorder;
-import jdk.jfr.Event;
 import jdk.jfr.EventFactory;
+import jdk.jfr.Event;
+import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
 import jdk.jfr.AnnotationElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlightRecorderTest {
+public class EventFactoryTest {
 
-	private Event testEvent;
-
-	@Before
-	public void before() {
+	@Test
+	public void testEventFactoryLifeCycle() {
 		List<AnnotationElement> annotationElements = new ArrayList<>();
 		List<ValueDescriptor> fields = new ArrayList<>();
 		EventFactory f = EventFactory.create(annotationElements, fields);
-		testEvent = f.newEvent();
-	}
+		Assert.assertNotNull(f);
 
-	@Test
-	public void testFlightRecorderRegisterUnregister() {
-		FlightRecorder fr = FlightRecorder.getFlightRecorder();
-		Assert.assertNotNull(fr);
+		Event testEvent = f.newEvent();
+		Assert.assertNotNull(testEvent);
 
-		fr.register(testEvent.getClass());
-		fr.unregister(testEvent.getClass());
+		EventType testEventType = f.getEventType();
+		Assert.assertNotNull(testEventType);
+
+		f.register();
+		f.unregister();
 	}
 }
