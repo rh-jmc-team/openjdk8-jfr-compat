@@ -26,14 +26,14 @@
 
 package jdk.jfr;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 public final class FlightRecorder {
    
 	public List<Recording> getRecordings() {
-	    return new ArrayList<Recording>();
+	    return Collections.emptyList();
 	}
 
 	public Recording takeSnapshot() {
@@ -58,7 +58,7 @@ public final class FlightRecorder {
 	}
 
 	public List<EventType> getEventTypes() {
-	    return new ArrayList<EventType>();
+	    return Collections.emptyList();
 	}
 
 	public static void addListener(FlightRecorderListener changeListener) {

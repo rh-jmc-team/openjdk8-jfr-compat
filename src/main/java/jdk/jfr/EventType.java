@@ -28,12 +28,12 @@ package jdk.jfr;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Collections;
 
 public final class EventType {
 
 	public List<ValueDescriptor> getFields() {
-        return new ArrayList<ValueDescriptor>();
+        return Collections.emptyList();
     }
 
     public ValueDescriptor getField(String name) {
@@ -53,7 +53,7 @@ public final class EventType {
     }
 
     public List<AnnotationElement> getAnnotationElements() {
-    	return new ArrayList<AnnotationElement>();
+    	return Collections.emptyList();
     }
 
     public boolean isEnabled() {
@@ -73,11 +73,11 @@ public final class EventType {
     }
 
     public List<SettingDescriptor> getSettingDescriptors() {
-        return new ArrayList<SettingDescriptor>();
+        return Collections.emptyList();
     }
     
     public List<String> getCategoryNames() {
-        return new ArrayList<String>();
+        return Collections.singletonList("Uncategorized");
     }
 
 }

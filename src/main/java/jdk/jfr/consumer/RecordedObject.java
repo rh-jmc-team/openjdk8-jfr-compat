@@ -29,7 +29,7 @@ package jdk.jfr.consumer;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Collections;
 
 import jdk.jfr.ValueDescriptor;
 
@@ -44,7 +44,7 @@ public class RecordedObject {
     }
 
     public List<ValueDescriptor> getFields() {
-        return new ArrayList<ValueDescriptor>();
+        return Collections.emptyList();
     }
 
     public final boolean getBoolean(String name) {

@@ -29,7 +29,7 @@ package jdk.jfr.consumer;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Collections;
 
 import jdk.jfr.EventType;
 import jdk.jfr.ValueDescriptor;
@@ -62,7 +62,7 @@ public final class RecordedEvent extends RecordedObject {
 
 	@Override
 	public List<ValueDescriptor> getFields() {
-	    return new ArrayList<ValueDescriptor>();
+	    return Collections.emptyList();
 	}
 
 }

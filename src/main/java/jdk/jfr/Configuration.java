@@ -31,7 +31,7 @@ import java.io.Reader;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -75,6 +75,6 @@ public final class Configuration {
 	}
 
 	public static List<Configuration> getConfigurations() {
-	    return new ArrayList<Configuration>();
+	    return Collections.emptyList();
 	}
 }
