@@ -35,24 +35,6 @@ import java.nio.file.Files;
 
 public class EventSettingsTest {
 
-	static final class EventSettingsInstance extends EventSettings {
-
-		@Override
-    	public EventSettings with(String name, String value) {
-    		return null;
-    	};
-	}
-
-	@Test
-	public void testMethodsReturnNotNull() {
-		EventSettings es = new EventSettingsInstance();
-		Assert.assertNotNull(es.withStackTrace());
-		Assert.assertNotNull(es.withoutStackTrace());
-		Assert.assertNotNull(es.withoutThreshold());
-		Assert.assertNotNull(es.withPeriod(Duration.ofSeconds(1)));
-		Assert.assertNotNull(es.withThreshold(Duration.ofSeconds(1)));
-	}
-
 	@Test
 	public void testEventSettingsUsage() throws Exception {
 		Recording r = new Recording();
