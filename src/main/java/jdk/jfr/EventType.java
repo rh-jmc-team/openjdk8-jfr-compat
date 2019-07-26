@@ -40,7 +40,7 @@ public final class EventType {
     }
 
     public String getName() {
-        return new String("");
+        return "";
     }
 
     public String getLabel() {

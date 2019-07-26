@@ -64,7 +64,7 @@ public final class SettingDescriptor {
     }
 
     public String getDefaultValue() {
-        return new String("");
+        return "";
     }
 
 }

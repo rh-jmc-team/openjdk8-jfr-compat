@@ -80,7 +80,7 @@ public final class Recording implements Closeable {
     }
 
     public String getName() {
-        return new String("");
+        return "";
     }
 
     public void setSettings(Map<String, String> settings) {

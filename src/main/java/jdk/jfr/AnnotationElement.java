@@ -54,7 +54,7 @@ public final class AnnotationElement {
 	}
 
 	public String getTypeName() {
-		return new String("");
+		return "";
 	}
 
 	public Object getValue(String name) {

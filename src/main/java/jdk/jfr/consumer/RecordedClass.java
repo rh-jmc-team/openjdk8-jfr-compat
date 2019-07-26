@@ -39,7 +39,7 @@ public final class RecordedClass extends RecordedObject {
     }
 
     public String getName() {
-        return new String("");
+        return "";
     }
 
     public long getId() {
