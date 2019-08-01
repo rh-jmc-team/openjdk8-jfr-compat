@@ -80,5 +80,4 @@ public final class FlightRecorder {
 	public static boolean isInitialized() {
 	    return false;
 	}
-
 }

@@ -38,11 +38,11 @@ public abstract class SettingControl {
 	}
 
 	protected SettingControl() {
-    }
+	}
 
-    public abstract String combine(Set<String> settingValues);
+	public abstract String combine(Set<String> settingValues);
 
-    public abstract void setValue(String settingValue);
+	public abstract void setValue(String settingValue);
 
-    public abstract String getValue();
+	public abstract String getValue();
 }

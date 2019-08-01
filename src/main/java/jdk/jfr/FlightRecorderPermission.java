@@ -38,7 +38,7 @@ public final class FlightRecorderPermission extends java.security.BasicPermissio
 	}
 
 	public FlightRecorderPermission(String name) {
-        super(Objects.requireNonNull(name));
+	    super(Objects.requireNonNull(name));
 	}
 
 }
