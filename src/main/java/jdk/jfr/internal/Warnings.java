@@ -23,63 +23,40 @@
  * questions.
  */
 
-package jdk.jfr;
+package jdk.jfr.internal;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Path;
-import java.text.ParseException;
-import java.util.List;
-import java.util.Collections;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import jdk.jfr.internal.Warnings;
+public class Warnings {
 
+	private static boolean WARN_USING_STUB_JFR = true;
+	private static final String REAL_JFR_CLASS = "jdk.jfr.internal.AnnotationConstruct";
 
-public final class Configuration {
+	private static final Logger logger = Logger.getLogger("Warnings");
 
-	static {
-		Warnings.usingStubJFR();
+	public static void usingStubJFR() {
+		if (WARN_USING_STUB_JFR) {
+			logger.log(Level.WARNING, "Using Stub JFR. To execute this application without the stub,"
+					+ " remove jfr-compat-1.0-SNAPSHOT.jar from the application's classpath");
+			WARN_USING_STUB_JFR = false;
+
+			if (realJFRExists()) {
+				String version = System.getProperty("java.version");
+				logger.log(Level.WARNING, "JFR functionality exists in java " + version +"." +
+				" Remove jfr-compat-1.0-SNAPSHOT.jar from the application's classpath");
+			}
+		}
 	}
 
-	public Map<String, String> getSettings() {
-	    return new HashMap<String,String>();
+	private static boolean realJFRExists() {
+		try {
+			Class.forName(REAL_JFR_CLASS);
+			return true;
+
+		} catch (ClassNotFoundException e) {
+			return false;
+		}
 	}
 
-	public String getName() {
-	    return null;
-	}
-
-	public String getLabel() {
-	    return null;
-	}
-
-	public String getDescription() {
-	    return null;
-	}
-
-	public String getProvider() {
-	    return null;
-	}
-
-	public String getContents() {
-	    return null;
-	}
-
-	public static Configuration create(Path path) throws IOException, ParseException {
-		return new Configuration();
-	}
-
-	public static Configuration create(Reader reader) throws IOException, ParseException {
-		return new Configuration();
-	}
-
-	public static Configuration getConfiguration(String name) throws IOException, ParseException {
-		return new Configuration();
-	}
-
-	public static List<Configuration> getConfigurations() {
-	    return Collections.emptyList();
-	}
 }

@@ -30,7 +30,13 @@ import java.util.List;
 import java.util.Collections;
 import java.util.Map;
 
+import jdk.jfr.internal.Warnings;
+
 public final class AnnotationElement {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	public AnnotationElement(Class<? extends Annotation> annotationType, Map<String, Object> values) {
 	}

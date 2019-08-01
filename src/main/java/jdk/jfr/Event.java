@@ -25,7 +25,13 @@
 
 package jdk.jfr;
 
+import jdk.jfr.internal.Warnings;
+
 abstract public class Event {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	protected Event() {
 	}

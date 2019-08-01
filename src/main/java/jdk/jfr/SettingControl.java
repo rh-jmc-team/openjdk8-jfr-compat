@@ -28,11 +28,16 @@ package jdk.jfr;
 import java.security.AccessController;
 import java.util.Set;
 
+import jdk.jfr.internal.Warnings;
 
 @MetadataDefinition
 public abstract class SettingControl {
 
-    protected SettingControl() {
+	static {
+		Warnings.usingStubJFR();
+	}
+
+	protected SettingControl() {
     }
 
     public abstract String combine(Set<String> settingValues);

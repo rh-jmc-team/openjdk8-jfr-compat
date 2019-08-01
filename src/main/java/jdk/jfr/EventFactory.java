@@ -27,6 +27,8 @@ package jdk.jfr;
 
 import java.util.List;
 
+import jdk.jfr.internal.Warnings;
+
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Method;
@@ -35,6 +37,10 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 
 public final class EventFactory {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	public static EventFactory create(List<AnnotationElement> annotationElements, List<ValueDescriptor> fields) {
 		return new EventFactory();

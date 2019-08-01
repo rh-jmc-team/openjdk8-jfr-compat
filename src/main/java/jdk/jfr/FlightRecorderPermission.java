@@ -27,12 +27,18 @@ package jdk.jfr;
 
 import java.util.Objects;
 
+import jdk.jfr.internal.Warnings;
+
 
 @SuppressWarnings("serial")
 public final class FlightRecorderPermission extends java.security.BasicPermission {
 
-   public FlightRecorderPermission(String name) {
+	static {
+		Warnings.usingStubJFR();
+	}
+
+	public FlightRecorderPermission(String name) {
         super(Objects.requireNonNull(name));
-   }
+	}
 
 }

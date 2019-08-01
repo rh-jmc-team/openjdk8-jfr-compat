@@ -29,8 +29,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+import jdk.jfr.internal.Warnings;
+
 public final class FlightRecorder {
-   
+
+	static {
+		Warnings.usingStubJFR();
+	}
+
 	public List<Recording> getRecordings() {
 	    return Collections.emptyList();
 	}

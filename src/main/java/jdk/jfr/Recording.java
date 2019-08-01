@@ -34,9 +34,15 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.HashMap;
 
+import jdk.jfr.internal.Warnings;
+
 public final class Recording implements Closeable {
 
-    public Recording(Map<String, String> settings) {
+	static {
+		Warnings.usingStubJFR();
+	}
+
+	public Recording(Map<String, String> settings) {
     }
 
     public Recording() {

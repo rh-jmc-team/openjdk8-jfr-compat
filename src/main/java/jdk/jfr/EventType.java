@@ -27,9 +27,16 @@ package jdk.jfr;
 
 import java.lang.annotation.Annotation;
 import java.util.List;
+
+import jdk.jfr.internal.Warnings;
+
 import java.util.Collections;
 
 public final class EventType {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	public List<ValueDescriptor> getFields() {
         return Collections.emptyList();
