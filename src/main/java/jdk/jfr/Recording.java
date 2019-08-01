@@ -36,138 +36,138 @@ import java.util.HashMap;
 
 public final class Recording implements Closeable {
 
-    public Recording(Map<String, String> settings) {
-    }
+	public Recording(Map<String, String> settings) {
+	}
 
-    public Recording() {
-    }
+	public Recording() {
+	}
 
-    public Recording(Configuration configuration) {
-    }
+	public Recording(Configuration configuration) {
+	}
 
-    public void start() {
-    }
+	public void start() {
+	}
 
-    public void scheduleStart(Duration delay) {
-    }
+	public void scheduleStart(Duration delay) {
+	}
 
     public boolean stop() {
     	return true;
     }
 
-    public Map<String, String> getSettings() {
-    	return new HashMap<String, String>();
-    }
+	public Map<String, String> getSettings() {
+		return new HashMap<String, String>();
+	}
 
-    public long getSize() {
-        return 0;
-    }
+	public long getSize() {
+	    return 0;
+	}
 
-    public Instant getStopTime() {
-        return null;
-    }
+	public Instant getStopTime() {
+	    return null;
+	}
 
-    public Instant getStartTime() {
-        return null;
-    }
+	public Instant getStartTime() {
+	    return null;
+	}
 
-    public long getMaxSize() {
-        return 0;
-    }
+	public long getMaxSize() {
+	    return 0;
+	}
 
-    public Duration getMaxAge() {
-        return null;
-    }
+	public Duration getMaxAge() {
+	    return null;
+	}
 
-    public String getName() {
-        return "";
-    }
+	public String getName() {
+	    return "";
+	}
 
-    public void setSettings(Map<String, String> settings) {
-    }
+	public void setSettings(Map<String, String> settings) {
+	}
 
-    public RecordingState getState() {
-        return RecordingState.CLOSED;
-    }
+	public RecordingState getState() {
+	    return RecordingState.CLOSED;
+	}
 
-    @Override
-    public void close() {
-    }
+	@Override
+	public void close() {
+	}
 
-    public Recording copy(boolean stop) {
-        return this;
-    }
+	public Recording copy(boolean stop) {
+	    return this;
+	}
 
-    public void dump(Path destination) throws IOException {
-    }
+	public void dump(Path destination) throws IOException {
+	}
 
     public boolean isToDisk() {
         return true;
     }
 
-    public void setMaxSize(long maxSize) {
-    }
+	public void setMaxSize(long maxSize) {
+	}
 
-    public void setMaxAge(Duration maxAge) {
-    }
+	public void setMaxAge(Duration maxAge) {
+	}
 
-    public void setDestination(Path destination) throws IOException {
-    }
+	public void setDestination(Path destination) throws IOException {
+	}
 
-    public Path getDestination() {
-    	return null;
-    }
+	public Path getDestination() {
+		return null;
+	}
 
-    public long getId() {
-    	return 0;
-    }
+	public long getId() {
+		return 0;
+	}
 
-    public void setName(String name) {
-    }
+	public void setName(String name) {
+	}
 
-    public void setDumpOnExit(boolean dumpOnExit) {
-    }
+	public void setDumpOnExit(boolean dumpOnExit) {
+	}
 
-    public boolean getDumpOnExit() {
-    	return false;
-    }
+	public boolean getDumpOnExit() {
+		return false;
+	}
 
-    public void setToDisk(boolean disk) {
-    }
+	public void setToDisk(boolean disk) {
+	}
 
-    public InputStream getStream(Instant start, Instant end) throws IOException {
-    	return null;
-    }
-    
-    public Duration getDuration() {
-    	return null;
-    }
+	public InputStream getStream(Instant start, Instant end) throws IOException {
+		return null;
+	}
 
-    public void setDuration(Duration duration) {
-    }
+	public Duration getDuration() {
+		return null;
+	}
 
-    public EventSettings enable(String name) {
-    	return getNewEventSettings();
-    }
+	public void setDuration(Duration duration) {
+	}
 
-    public EventSettings disable(String name) {
-    	return getNewEventSettings();
-    }
+	public EventSettings enable(String name) {
+		return getNewEventSettings();
+	}
 
-    public EventSettings enable(Class<? extends Event> eventClass) {
-    	return getNewEventSettings();
-    }
-    
-    public EventSettings disable(Class<? extends Event> eventClass) {
-    	return getNewEventSettings();
-    }
+	public EventSettings disable(String name) {
+		return getNewEventSettings();
+	}
 
-    private EventSettings getNewEventSettings() {
-    	return new EventSettings() {
-        	@Override
-        	public EventSettings with(String name, String value) {
-        		return null;
-        	};
-        };
-    }
+	public EventSettings enable(Class<? extends Event> eventClass) {
+		return getNewEventSettings();
+	}
+
+	public EventSettings disable(Class<? extends Event> eventClass) {
+		return getNewEventSettings();
+	}
+
+	private EventSettings getNewEventSettings() {
+		return new EventSettings() {
+	    	@Override
+	    	public EventSettings with(String name, String value) {
+	    		return null;
+	    	};
+	    };
+	}
 }

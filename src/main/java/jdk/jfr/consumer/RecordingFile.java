@@ -35,26 +35,26 @@ import jdk.jfr.EventType;
 
 public final class RecordingFile implements Closeable {
 
-    public RecordingFile(Path file) throws IOException {
-    }
+	public RecordingFile(Path file) throws IOException {
+	}
 
-    public RecordedEvent readEvent() throws IOException {
-        return new RecordedEvent();
-    }
+	public RecordedEvent readEvent() throws IOException {
+	    return new RecordedEvent();
+	}
 
-    public boolean hasMoreEvents() {
-        return false;
-    }
+	public boolean hasMoreEvents() {
+	    return false;
+	}
 
-    public List<EventType> readEventTypes() throws IOException {
-        return new ArrayList<EventType>();
-    }
+	public List<EventType> readEventTypes() throws IOException {
+	    return new ArrayList<EventType>();
+	}
 
-    public void close() throws IOException {
-    }
+	public void close() throws IOException {
+	}
 
-    public static List<RecordedEvent> readAllEvents(Path path) throws IOException {
-    	return new ArrayList<RecordedEvent>();
-    }
+	public static List<RecordedEvent> readAllEvents(Path path) throws IOException {
+		return new ArrayList<RecordedEvent>();
+	}
 
 }
