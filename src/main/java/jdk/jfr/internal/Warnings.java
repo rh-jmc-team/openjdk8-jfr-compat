@@ -33,7 +33,7 @@ public class Warnings {
 	private static boolean WARN_USING_STUB_JFR = true;
 	private static final String REAL_JFR_CLASS = "jdk.jfr.internal.AnnotationConstruct";
 
-	private static final Logger logger = Logger.getLogger("Warnings");
+	private static final Logger logger = Logger.getLogger("openjdk8-jfr-compat");
 
 	public static void usingStubJFR() {
 		if (WARN_USING_STUB_JFR) {
