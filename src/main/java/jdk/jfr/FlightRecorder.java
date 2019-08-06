@@ -30,7 +30,9 @@ import java.util.List;
 import java.util.Objects;
 
 public final class FlightRecorder {
-   
+
+	private static volatile FlightRecorder platformRecorder;
+
 	public List<Recording> getRecordings() {
 	    return Collections.emptyList();
 	}
@@ -46,7 +48,10 @@ public final class FlightRecorder {
 	}
 
 	public static FlightRecorder getFlightRecorder() throws IllegalStateException, SecurityException {
-	    return new FlightRecorder();
+		if (platformRecorder == null) {
+			platformRecorder = new FlightRecorder();
+		}
+		return platformRecorder;
 	}
 
 	public static void addPeriodicEvent(Class<? extends Event> eventClass, Runnable hook) throws SecurityException {
