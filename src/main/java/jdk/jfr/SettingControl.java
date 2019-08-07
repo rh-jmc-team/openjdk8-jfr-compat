@@ -25,7 +25,6 @@
 
 package jdk.jfr;
 
-import java.security.AccessController;
 import java.util.Set;
 
 

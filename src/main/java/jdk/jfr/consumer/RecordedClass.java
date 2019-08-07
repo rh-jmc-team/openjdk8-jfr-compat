@@ -25,9 +25,6 @@
 
 package jdk.jfr.consumer;
 
-import jdk.jfr.ValueDescriptor;
-
-
 public final class RecordedClass extends RecordedObject {
 
     public int getModifiers() {

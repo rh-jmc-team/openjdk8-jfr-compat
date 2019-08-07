@@ -52,7 +52,7 @@ public final class Recording implements Closeable {
     }
 
     public boolean stop() {
-    	return false;
+    	return true;
     }
 
     public Map<String, String> getSettings() {
@@ -102,7 +102,7 @@ public final class Recording implements Closeable {
     }
 
     public boolean isToDisk() {
-        return false;
+        return true;
     }
 
     public void setMaxSize(long maxSize) {
