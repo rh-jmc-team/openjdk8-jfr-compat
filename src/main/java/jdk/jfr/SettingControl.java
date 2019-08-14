@@ -25,7 +25,6 @@
 
 package jdk.jfr;
 
-import java.security.AccessController;
 import java.util.Set;
 
 import jdk.jfr.internal.Warnings;
@@ -45,4 +44,5 @@ public abstract class SettingControl {
 	public abstract void setValue(String settingValue);
 
 	public abstract String getValue();
+
 }

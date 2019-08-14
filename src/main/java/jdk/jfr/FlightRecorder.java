@@ -37,6 +37,8 @@ public final class FlightRecorder {
 		Warnings.usingStubJFR();
 	}
 
+	private static volatile FlightRecorder platformRecorder;
+
 	public List<Recording> getRecordings() {
 	    return Collections.emptyList();
 	}
@@ -52,7 +54,10 @@ public final class FlightRecorder {
 	}
 
 	public static FlightRecorder getFlightRecorder() throws IllegalStateException, SecurityException {
-	    return new FlightRecorder();
+		if (platformRecorder == null) {
+			platformRecorder = new FlightRecorder();
+		}
+		return platformRecorder;
 	}
 
 	public static void addPeriodicEvent(Class<? extends Event> eventClass, Runnable hook) throws SecurityException {

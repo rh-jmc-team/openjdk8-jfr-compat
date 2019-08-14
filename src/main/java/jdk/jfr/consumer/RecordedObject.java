@@ -83,11 +83,11 @@ public class RecordedObject {
     }
 
     public final Duration getDuration(String name) {
-        return null;
+        return Duration.ZERO;
     }
     
     public final Instant getInstant(String name) {
-       return null;
+       return Instant.now();
     }
 
     public final RecordedClass getClass(String name) {

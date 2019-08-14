@@ -28,15 +28,15 @@ package jdk.jfr.consumer;
 public final class RecordedFrame extends RecordedObject {
 
     public boolean isJavaFrame() {
-        return false;
+        return true;
     }
 
     public int getBytecodeIndex() {
-        return -1;
+        return Integer.valueOf(-1);
     }
 
     public int getLineNumber() {
-        return -1;
+        return Integer.valueOf(-1);
     }
 
     public String getType() {

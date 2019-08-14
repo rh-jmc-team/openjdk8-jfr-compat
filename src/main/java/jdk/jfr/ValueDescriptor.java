@@ -25,6 +25,8 @@
 
 package jdk.jfr;
 
+import java.lang.annotation.Annotation;
+import java.util.Collections;
 import java.util.List;
 
 import jdk.jfr.internal.Warnings;
@@ -44,4 +46,43 @@ public final class ValueDescriptor {
 	public ValueDescriptor(Class<?> type, String name, List<AnnotationElement> annotations) {
 	}
 
+	public String getLabel() {
+		return null;
+	}
+
+	public String getName() {
+		return "";
+	}
+
+	public String getDescription() {
+		return null;
+	}
+
+	public String getContentType() {
+		return null;
+	}
+
+	public String getTypeName() {
+		return "";
+	}
+
+	public long getTypeId() {
+		return 0;
+	}
+
+	public boolean isArray() {
+		return false;
+	}
+
+	public <A extends Annotation> A getAnnotation(Class<A> annotationType) {
+		return null;
+	}
+
+	public List<AnnotationElement> getAnnotationElements() {
+		return Collections.emptyList();
+	}
+
+	public List<ValueDescriptor> getFields() {
+		return Collections.emptyList();
+	}
 }

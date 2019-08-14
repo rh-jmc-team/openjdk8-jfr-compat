@@ -63,7 +63,7 @@ public final class EventType {
     }
 
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public String getDescription() {

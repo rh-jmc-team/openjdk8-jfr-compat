@@ -32,7 +32,7 @@ public final class RecordedThread extends RecordedObject {
     }
 
     public long getOSThreadId() {
-       return 0;
+       return -1L;
     }
 
     public RecordedThreadGroup getThreadGroup() {
@@ -44,7 +44,7 @@ public final class RecordedThread extends RecordedObject {
     }
 
     public long getJavaThreadId() {
-        return -1;
+        return -1L;
     }
 
     public long getId() {
