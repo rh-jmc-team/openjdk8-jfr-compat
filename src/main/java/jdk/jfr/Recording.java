@@ -34,7 +34,13 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.HashMap;
 
+import jdk.jfr.internal.Warnings;
+
 public final class Recording implements Closeable {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	public Recording(Map<String, String> settings) {
 	}
@@ -51,9 +57,9 @@ public final class Recording implements Closeable {
 	public void scheduleStart(Duration delay) {
 	}
 
-    public boolean stop() {
-    	return true;
-    }
+	public boolean stop() {
+		return true;
+	}
 
 	public Map<String, String> getSettings() {
 		return new HashMap<String, String>();
@@ -101,9 +107,9 @@ public final class Recording implements Closeable {
 	public void dump(Path destination) throws IOException {
 	}
 
-    public boolean isToDisk() {
-        return true;
-    }
+	public boolean isToDisk() {
+	    return true;
+	}
 
 	public void setMaxSize(long maxSize) {
 	}

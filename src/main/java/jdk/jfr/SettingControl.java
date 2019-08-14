@@ -27,9 +27,14 @@ package jdk.jfr;
 
 import java.util.Set;
 
+import jdk.jfr.internal.Warnings;
 
 @MetadataDefinition
 public abstract class SettingControl {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	protected SettingControl() {
 	}
@@ -39,4 +44,5 @@ public abstract class SettingControl {
 	public abstract void setValue(String settingValue);
 
 	public abstract String getValue();
+
 }

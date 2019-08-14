@@ -32,8 +32,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 import jdk.jfr.EventType;
+import jdk.jfr.internal.Warnings;
 
 public final class RecordingFile implements Closeable {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	public RecordingFile(Path file) throws IOException {
 	}

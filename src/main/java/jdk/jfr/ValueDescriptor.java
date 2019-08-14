@@ -29,7 +29,13 @@ import java.lang.annotation.Annotation;
 import java.util.Collections;
 import java.util.List;
 
+import jdk.jfr.internal.Warnings;
+
 public final class ValueDescriptor {
+
+	static {
+		Warnings.usingStubJFR();
+	}
 
 	public ValueDescriptor() {
 	}
