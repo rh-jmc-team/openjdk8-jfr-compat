@@ -22,6 +22,7 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+package jfr.compat.test;
 
 import jdk.jfr.Event;
 import jdk.jfr.Label;

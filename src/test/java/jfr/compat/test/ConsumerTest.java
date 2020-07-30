@@ -22,52 +22,48 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+package jfr.compat.test;
 
-import jdk.jfr.Recording;
-import jdk.jfr.Configuration;
-import jdk.jfr.Event;
-import jdk.jfr.EventFactory;
-import jdk.jfr.ValueDescriptor;
-import jdk.jfr.AnnotationElement;
+import jdk.jfr.consumer.RecordingFile;
+import jfr.compat.test.util.TestToolkit;
+import jdk.jfr.consumer.RecordedEvent;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 import org.junit.Test;
+import org.junit.Assert;
 import org.junit.Before;
 
-public class RecordingTest {
-
-	private Event testEvent;
+public class ConsumerTest {
+	private static final String TEST_RECORDING = "test_recording.jfr";
+	private static final String TEMP_DIR_NAME = "recordings";
+	private RecordingFile recordingFile;
 	@Before
 	public void before() {
-		List<AnnotationElement> annotationElements = new ArrayList<>();
-		List<ValueDescriptor> fields = new ArrayList<>();
-		EventFactory f = EventFactory.create(annotationElements, fields);
-		testEvent = f.newEvent();
+		try {
+			File tempFile = TestToolkit.materialize(TEMP_DIR_NAME, TEST_RECORDING, ConsumerTest.class);
+			Path recordingPath = Paths.get(tempFile.getPath());
+			recordingFile = new RecordingFile(recordingPath);
+		} catch (IOException e) {
+			 System.err.println("Failed to create recording: " + e);
+		}
+		Assert.assertNotNull(recordingFile);
 	}
 
 	@Test
-	public void testRecordingLifeCycle() throws Exception {
-		   Configuration c = Configuration.getConfiguration("default");
-		   Recording r = new Recording(c);
-		   r.start();
-		   System.gc();
-		   Thread.sleep(100);
-		   r.stop();
-		   Path jfrFilePath = Paths.get(System.getProperty("user.home"), "jfr_temp.jfr");
-		   r.dump(jfrFilePath);
-	   }
+	public void testRecordedEventMethodsReturnNotNull() throws IOException {
+		RecordedEvent event = recordingFile.readEvent();
+		Assert.assertNotNull(event);
 
-	@Test
-	public void testRecordingEnableDisable() throws Exception {
-		   Configuration c = Configuration.getConfiguration("default");
-		   Recording r = new Recording(c);
+		Assert.assertNotNull(event.getEventType());
+		Assert.assertNotNull(event.getStartTime());
+		Assert.assertNotNull(event.getEndTime());
+		Assert.assertNotNull(event.getDuration());
+		Assert.assertNotNull(event.getFields());
 
-		   r.enable(testEvent.getClass()).with("threshold","20 ms");
-		   r.disable(testEvent.getClass()).with("threshold","20 ms");
-	   }
+	}
+
 }

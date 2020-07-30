@@ -22,6 +22,7 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+package jfr.compat.test;
 
 import org.junit.Test;
 import org.junit.Assert;
@@ -53,7 +54,7 @@ public class FlightRecorderTest {
 		FlightRecorder fr = FlightRecorder.getFlightRecorder();
 		Assert.assertNotNull(fr);
 
-		fr.register(testEvent.getClass());
-		fr.unregister(testEvent.getClass());
+		FlightRecorder.register(testEvent.getClass());
+		FlightRecorder.unregister(testEvent.getClass());
 	}
 }

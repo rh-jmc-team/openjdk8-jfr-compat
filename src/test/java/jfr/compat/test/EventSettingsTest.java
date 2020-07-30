@@ -22,35 +22,26 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+package jfr.compat.test;
 
 import org.junit.Test;
-import org.junit.Assert;
 
-import jdk.jfr.EventFactory;
-import jdk.jfr.Event;
-import jdk.jfr.EventType;
-import jdk.jfr.ValueDescriptor;
-import jdk.jfr.AnnotationElement;
+import jdk.jfr.Recording;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Duration;
 
-public class EventFactoryTest {
+import java.nio.file.Files;
+
+public class EventSettingsTest {
 
 	@Test
-	public void testEventFactoryLifeCycle() {
-		List<AnnotationElement> annotationElements = new ArrayList<>();
-		List<ValueDescriptor> fields = new ArrayList<>();
-		EventFactory f = EventFactory.create(annotationElements, fields);
-		Assert.assertNotNull(f);
-
-		Event testEvent = f.newEvent();
-		Assert.assertNotNull(testEvent);
-
-		EventType testEventType = f.getEventType();
-		Assert.assertNotNull(testEventType);
-
-		f.register();
-		f.unregister();
+	public void testEventSettingsUsage() throws Exception {
+		Recording r = new Recording();
+		r.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));
+		r.enable("jdk.FileWrite").withoutStackTrace().withThreshold(Duration.ofNanos(10));
+		r.start();
+		Thread.sleep(100);
+		r.stop();
+		r.dump(Files.createTempFile("recording", ".jfr"));
 	}
 }
