@@ -22,60 +22,54 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+package jfr.compat.test;
 
-import jdk.jfr.consumer.RecordingFile;
-import jdk.jfr.consumer.RecordedEvent;
-import jdk.jfr.consumer.RecordedClass;
-
-
-import java.util.List;
+import jdk.jfr.Recording;
+import jdk.jfr.Configuration;
+import jdk.jfr.Event;
+import jdk.jfr.EventFactory;
+import jdk.jfr.ValueDescriptor;
+import jdk.jfr.AnnotationElement;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
-import org.junit.Assert;
 import org.junit.Before;
 
-public class ConsumerTest {
+public class RecordingTest {
 
-	private RecordingFile recordingFile;
+	private Event testEvent;
+
 	@Before
 	public void before() {
-		try {
-			Path recordingPath = Paths.get(System.getProperty("user.home"),"recording.jfr");
-			recordingFile = new RecordingFile(recordingPath);
-		} catch (IOException e) {
-			 System.err.println("Failed to create recording file");
-		}
-		Assert.assertNotNull(recordingFile);
+		List<AnnotationElement> annotationElements = new ArrayList<>();
+		List<ValueDescriptor> fields = new ArrayList<>();
+		EventFactory f = EventFactory.create(annotationElements, fields);
+		testEvent = f.newEvent();
 	}
 
 	@Test
-	public void testRecordedEventMethodsReturnNotNull() throws IOException {
-		RecordedEvent event = recordingFile.readEvent();
-		Assert.assertNotNull(event);
-
-		Assert.assertNotNull(event.getEventType());
-		Assert.assertNotNull(event.getStartTime());
-		Assert.assertNotNull(event.getEndTime());
-		Assert.assertNotNull(event.getDuration());
-		Assert.assertNotNull(event.getFields());
-
-	}
+	public void testRecordingLifeCycle() throws Exception {
+		   Configuration c = Configuration.getConfiguration("default");
+		   Recording r = new Recording(c);
+		   r.start();
+		   System.gc();
+		   Thread.sleep(100);
+		   r.stop();
+		   Path jfrFilePath = Paths.get(System.getProperty("user.home"), "jfr_temp.jfr");
+		   r.dump(jfrFilePath);
+	   }
 
 	@Test
-	public void testRecordedClassMethodsReturnNotNull() throws IOException {
-		RecordedEvent event = recordingFile.readEvent();
-		Assert.assertNotNull(event);
+	public void testRecordingEnableDisable() throws Exception {
+		   Configuration c = Configuration.getConfiguration("default");
+		   Recording r = new Recording(c);
 
-		RecordedClass recordedClass = event.getClass("testClass");
-		Assert.assertNotNull(recordedClass);
-
-		String name = recordedClass.getName();
-		Assert.assertNotNull(name);
-	}
-
+		   r.enable(testEvent.getClass()).with("threshold","20 ms");
+		   r.disable(testEvent.getClass()).with("threshold","20 ms");
+	   }
 }

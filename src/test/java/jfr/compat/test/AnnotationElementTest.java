@@ -1,3 +1,4 @@
+package jfr.compat.test;
 /*
  * Copyright (c) 2016, 2018, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
@@ -23,26 +24,36 @@
  * questions.
  */
 
+import jdk.jfr.Event;
+import jdk.jfr.AnnotationElement;
+import jdk.jfr.ValueDescriptor;
+import jdk.jfr.EventFactory;
+import jdk.jfr.Description;
+import jdk.jfr.Name;
+import jdk.jfr.Label;
+
+import java.util.List;
+import java.util.ArrayList;
+
 import org.junit.Test;
-import org.junit.Assert;
 
-import jdk.jfr.EventSettings;
-import jdk.jfr.Recording;
-
-import java.time.Duration;
-
-import java.nio.file.Files;
-
-public class EventSettingsTest {
-
+public class AnnotationElementTest{
+	
 	@Test
-	public void testEventSettingsUsage() throws Exception {
-		Recording r = new Recording();
-		r.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));
-		r.enable("jdk.FileWrite").withoutStackTrace().withThreshold(Duration.ofNanos(10));
-		r.start();
-		Thread.sleep(100);
-		r.stop();
-		r.dump(Files.createTempFile("recording", ".jfr"));
+	public void testAnnotationElement() {
+		List<AnnotationElement> typeAnnotations = new ArrayList<>();
+		typeAnnotations.add(new AnnotationElement(Name.class, "com.example.HelloWorld"));
+		typeAnnotations.add(new AnnotationElement(Label.class, "Hello World"));
+		typeAnnotations.add(new AnnotationElement(Description.class, "Helps programmer getting started"));
+
+		List<AnnotationElement> fieldAnnotations = new ArrayList<>();
+		fieldAnnotations.add(new AnnotationElement(Label.class, "Message"));
+
+		List<ValueDescriptor> fields = new ArrayList<>();
+		fields.add(new ValueDescriptor(String.class, "message", fieldAnnotations));
+
+		EventFactory f = EventFactory.create(typeAnnotations, fields);
+		Event event = f.newEvent();
+		event.commit();
 	}
 }

@@ -22,37 +22,36 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
-
-import jdk.jfr.Event;
-import jdk.jfr.AnnotationElement;
-import jdk.jfr.ValueDescriptor;
-import jdk.jfr.EventFactory;
-import jdk.jfr.Description;
-import jdk.jfr.Name;
-import jdk.jfr.Label;
-
-import java.util.List;
-import java.util.ArrayList;
+package jfr.compat.test;
 
 import org.junit.Test;
+import org.junit.Assert;
 
-public class AnnotationElementTest{
-	
+import jdk.jfr.EventFactory;
+import jdk.jfr.Event;
+import jdk.jfr.EventType;
+import jdk.jfr.ValueDescriptor;
+import jdk.jfr.AnnotationElement;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EventFactoryTest {
+
 	@Test
-	public void testAnnotationElement() {
-		List<AnnotationElement> typeAnnotations = new ArrayList<>();
-		typeAnnotations.add(new AnnotationElement(Name.class, "com.example.HelloWorld"));
-		typeAnnotations.add(new AnnotationElement(Label.class, "Hello World"));
-		typeAnnotations.add(new AnnotationElement(Description.class, "Helps programmer getting started"));
-
-		List<AnnotationElement> fieldAnnotations = new ArrayList<>();
-		fieldAnnotations.add(new AnnotationElement(Label.class, "Message"));
-
+	public void testEventFactoryLifeCycle() {
+		List<AnnotationElement> annotationElements = new ArrayList<>();
 		List<ValueDescriptor> fields = new ArrayList<>();
-		fields.add(new ValueDescriptor(String.class, "message", fieldAnnotations));
+		EventFactory f = EventFactory.create(annotationElements, fields);
+		Assert.assertNotNull(f);
 
-		EventFactory f = EventFactory.create(typeAnnotations, fields);
-		Event event = f.newEvent();
-		event.commit();
+		Event testEvent = f.newEvent();
+		Assert.assertNotNull(testEvent);
+
+		EventType testEventType = f.getEventType();
+		Assert.assertNotNull(testEventType);
+
+		f.register();
+		f.unregister();
 	}
 }
